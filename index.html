@@ -4,285 +4,178 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>AI 产品运营｜六周周末课程表</title>
+  <title>Ai 产品运营就业系统课</title>
   <style>
-    :root { --paper:#eeece4; --ink:#252523; --muted:#77756f; --line:#d9d6cd; --page:#fbfaf6; --rose:#f6e8e5; --mint:#e9f1e9; --blue:#e8eef5; --lilac:#eeeaf5; --yellow:#f7f0d9; --gray:#ececea; --accent:#a8564d; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
-    h1,h2,h3,p { margin:0; }
-    .page { width:min(1500px,calc(100% - 64px)); margin:0 auto; padding:54px 0 68px; }
-    .page-top { display:grid; grid-template-columns:1fr auto; align-items:end; gap:30px; padding:0 0 36px; border-bottom:1px solid #cac7bd; }
-    .eyebrow { color:var(--accent); font-family:Georgia,"Songti SC",serif; font-size:14px; letter-spacing:.16em; }
-    h1 { margin-top:11px; font-family:Georgia,"Songti SC",serif; font-size:48px; font-weight:600; line-height:1.1; letter-spacing:.02em; }
-    .top-note { margin-top:15px; color:var(--muted); font-size:17px; line-height:1.65; }
-    .time-rule { display:flex; align-items:center; gap:16px; padding:13px 16px; border:1px solid #c9c5ba; background:rgba(251,250,246,.58); white-space:nowrap; }
-    .time-rule strong { color:var(--accent); font-size:15px; }
-    .time-rule span { color:var(--muted); font-size:14px; }
-    .legend { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:25px 0 38px; border:1px solid var(--line); background:var(--line); }
-    .legend div { min-height:76px; padding:17px 20px; background:var(--page); }
-    .legend b { display:block; color:var(--accent); font-size:13px; letter-spacing:.1em; }
-    .legend span { display:block; margin-top:7px; color:var(--muted); font-size:14px; line-height:1.45; }
-    .week-card { overflow:hidden; margin-top:26px; border:1px solid var(--line); border-radius:18px; background:var(--page); }
-    .week-header { display:grid; grid-template-columns:92px minmax(280px,1fr) minmax(250px,.76fr); align-items:center; gap:24px; min-height:122px; padding:22px 28px; background:var(--week-color); border-bottom:1px solid var(--line); }
-    .rose { --week-color:var(--rose); --week-accent:#a8564d; }.mint { --week-color:var(--mint); --week-accent:#4d7d5e; }.blue { --week-color:var(--blue); --week-accent:#4d6f99; }.lilac { --week-color:var(--lilac); --week-accent:#706095; }.yellow { --week-color:var(--yellow); --week-accent:#997915; }.gray { --week-color:var(--gray); --week-accent:#555552; }
-    .week-number { color:var(--week-accent); font-family:Georgia,"Songti SC",serif; font-size:70px; line-height:.8; }
-    .week-title p { color:var(--week-accent); font-family:Georgia,"Songti SC",serif; font-size:12px; letter-spacing:.14em; }
-    .week-title h2 { margin-top:8px; font-family:Georgia,"Songti SC",serif; font-size:31px; font-weight:600; letter-spacing:.02em; }
-    .week-note { padding-left:24px; border-left:1px solid rgba(37,37,35,.14); color:#5b5954; font-size:15px; line-height:1.6; }
-    .course-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
-    .day-column + .day-column { border-left:1px solid var(--line); }
-    .day-header { display:flex; align-items:center; justify-content:space-between; height:58px; padding:0 27px; border-bottom:1px solid var(--line); }
-    .day-header strong { font-size:17px; }.day-header span { color:#99968d; font-size:11px; letter-spacing:.12em; }
-    .day-content { display:grid; grid-template-rows:repeat(2,minmax(0,1fr)); }
-    .time-block { min-height:156px; padding:22px 27px 20px; }.time-block + .time-block { border-top:1px dashed #dfdcd3; }
-    .time { color:#99968d; font-size:12px; font-weight:600; letter-spacing:.04em; }
-    .time span { display:inline-block; margin-left:9px; padding:3px 6px; color:#fff; background:var(--week-accent); font-size:10px; letter-spacing:.05em; }
-    .time-block h3 { margin-top:17px; font-size:22px; font-weight:600; line-height:1.35; }.description { margin-top:10px; color:var(--muted); font-size:15px; line-height:1.65; }
-    .review-block { background:rgba(255,255,255,.38); }
-    .homework-row { display:grid; grid-template-columns:.9fr 1.25fr 1.45fr; gap:0; border-top:1px solid var(--line); background:#f8f7f2; }.homework-row div { min-height:122px; padding:19px 24px; }.homework-row div + div { border-left:1px solid var(--line); }
-    .homework-row p { color:var(--week-accent); font-size:11px; font-weight:700; letter-spacing:.11em; }.homework-row b { display:block; margin-top:10px; font-size:15px; font-weight:600; line-height:1.55; }.homework-row small { display:block; margin-top:7px; color:#99968d; font-size:12px; line-height:1.45; }
-    .bottom { display:flex; justify-content:space-between; gap:28px; padding:32px 0 0; color:var(--muted); font-size:13px; line-height:1.55; }.bottom b { color:var(--ink); }
-    @media (max-width:900px) { .page { width:min(calc(100% - 32px),760px); padding-top:30px; }.page-top { grid-template-columns:1fr; }.time-rule { width:100%; max-width:100%; flex-wrap:wrap; white-space:normal; }.time-rule span { overflow-wrap:anywhere; }.week-header { grid-template-columns:62px 1fr; gap:16px; }.week-number { font-size:50px; }.week-note { grid-column:1 / -1; padding:12px 0 0; border-left:0; border-top:1px solid rgba(37,37,35,.14); }.course-grid,.homework-row,.legend { grid-template-columns:1fr; }.day-column + .day-column,.homework-row div + div { border-left:0; border-top:1px solid var(--line); }.bottom { display:block; }.bottom p + p { margin-top:8px; } }
-    @media print { body { background:#fff; }.page { width:100%; padding:0; }.week-card { break-inside:avoid; page-break-inside:avoid; } }
+    :root {
+      --paper: #faf9f3;
+      --white: #fffefa;
+      --ink: #273b36;
+      --muted: #72807a;
+      --line: #d9e0d9;
+      --green: #346a56;
+      --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", serif;
+      --sans: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    h1, h2, h3, p { margin: 0; }
+    .page { width: min(1190px, calc(100% - 64px)); margin: 0 auto; padding: 26px 0 80px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; color: #4d7768; font-size: 15px; font-weight: 700; letter-spacing: .19em; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand::before { content: ""; width: 11px; height: 11px; border: 4px solid #47876d; border-radius: 50%; }
+    .topbar .catalog { white-space: nowrap; font-size: 13px; }
+    .hero { margin: 72px 0 76px; padding-bottom: 42px; border-bottom: 1px solid #b4cabe; }
+    .hero-kicker { color: #4f7869; font-size: 15px; font-weight: 700; letter-spacing: .27em; }
+    .hero h1 { margin-top: 22px; font-family: var(--serif); font-size: clamp(48px, 6vw, 78px); font-weight: 600; letter-spacing: .03em; line-height: 1.15; }
+    .hero-desc { max-width: 750px; margin-top: 24px; color: #63756b; font-size: 17px; line-height: 1.9; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .hero-meta span { padding: 9px 14px; border: 1px solid #c8d9cf; border-radius: 999px; color: #4b6d5f; background: #f3f8f2; font-size: 13px; font-weight: 600; }
+    .week { --accent: #4d806b; --pale: #eef7f1; --number: #c2d5c9; margin-top: 88px; scroll-margin-top: 35px; }
+    .week.lavender { --accent: #7e69a2; --pale: #f6f1ff; --number: #d8c9e8; }
+    .week.blue { --accent: #587d98; --pale: #f0f6fb; --number: #ccdae7; }
+    .week.rose { --accent: #ae7169; --pale: #fdf1ef; --number: #e5c6c1; }
+    .week.gold { --accent: #a28230; --pale: #fbf7e8; --number: #e3d69d; }
+    .week.forest { --accent: #356d58; --pale: #edf6ef; --number: #b8d2c2; }
+    .week-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; column-gap: 34px; padding: 0 0 26px; border-bottom: 2px solid var(--number); }
+    .week-kicker { color: #688075; font-size: 15px; font-weight: 700; letter-spacing: .26em; }
+    .week h2 { max-width: 890px; margin-top: 20px; font-family: var(--serif); font-size: clamp(36px, 4.6vw, 60px); font-weight: 600; line-height: 1.22; letter-spacing: .025em; }
+    .week-number { color: var(--number); text-align: center; font-family: var(--serif); font-size: 100px; line-height: .79; }
+    .week-number small { display: block; margin-top: 15px; color: #61796e; font-family: var(--serif); font-size: 13px; font-weight: 700; letter-spacing: .32em; }
+    .week-note { margin: 20px 0 23px; color: #6d7a73; font-size: 15px; line-height: 1.75; }
+    .day-card { display: grid; grid-template-columns: 140px minmax(0, 1fr); overflow: hidden; margin-top: 17px; border: 1px solid #dce4dd; border-radius: 19px; background: #fff; box-shadow: 0 12px 23px rgba(42, 62, 50, .055); }
+    .day-label { display: flex; flex-direction: column; justify-content: space-between; min-height: 239px; padding: 30px 28px 24px; background: var(--pale); color: var(--accent); border-right: 1px solid #e0e7df; }
+    .day-label strong { font-family: var(--serif); font-size: 35px; font-weight: 600; line-height: 1.1; white-space: nowrap; }
+    .day-label span { color: #72877e; font-size: 12px; font-weight: 800; letter-spacing: .18em; white-space: nowrap; }
+    .day-body { min-width: 0; padding: 25px 28px 21px; }
+    .periods { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; min-height: 142px; }
+    .period { display: grid; grid-template-columns: 57px minmax(0, 1fr); align-content: start; gap: 12px; }
+    .period-label { padding-top: 3px; color: var(--accent); font-size: 14px; font-weight: 800; white-space: nowrap; }
+    .period h3 { font-size: 21px; font-weight: 750; line-height: 1.55; letter-spacing: .01em; }
+    .period p { margin-top: 7px; color: #78847e; font-size: 13px; line-height: 1.55; }
+    .homework { display: grid; grid-template-columns: 57px minmax(0, 1fr); gap: 12px; padding-top: 16px; border-top: 1px dashed #d5ded7; }
+    .homework b { color: var(--accent); font-size: 14px; white-space: nowrap; }
+    .homework p { color: #5b675f; font-size: 15px; font-weight: 650; line-height: 1.6; }
+    .week-output { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; margin-top: 21px; padding: 16px 20px; border-radius: 11px; background: var(--pale); color: #5e6d63; font-size: 14px; line-height: 1.65; }
+    .week-output b { color: var(--accent); white-space: nowrap; }
+    .feedback { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; margin-top: 9px; padding: 13px 20px; border: 1px solid var(--number); border-radius: 11px; color: #5e6d63; background: #fff; font-size: 13px; line-height: 1.6; }
+    .feedback b { color: var(--accent); white-space: nowrap; }
+    .footnote { margin-top: 88px; padding: 30px 0 10px; border-top: 1px solid #cbd9ce; color: #6c7c70; font-size: 14px; line-height: 1.9; }
+    .footnote strong { color: var(--ink); }
+    .footnote p + p { margin-top: 9px; }
+    @media (max-width: 800px) {
+      .page { width: min(100% - 30px, 650px); padding-top: 18px; }
+      .hero { margin: 50px 0 52px; }
+      .week { margin-top: 66px; }
+      .week-number { font-size: 66px; }
+      .week-heading { gap: 12px; }
+      .day-card { grid-template-columns: 100px minmax(0, 1fr); }
+      .day-label { min-height: auto; padding: 23px 16px; }
+      .day-label strong { font-size: 26px; }
+      .day-body { padding: 22px 19px 18px; }
+      .periods { grid-template-columns: 1fr; gap: 21px; padding-bottom: 20px; }
+      .period { grid-template-columns: 49px minmax(0, 1fr); gap: 9px; }
+      .period h3 { font-size: 18px; }
+      .homework { grid-template-columns: 49px minmax(0, 1fr); gap: 9px; }
+      .homework p { font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+      .topbar { font-size: 11px; }
+      .topbar .catalog { font-size: 10px; }
+      .brand::before { width: 9px; height: 9px; border-width: 3px; }
+      .hero h1 { font-size: 43px; }
+      .hero-desc { font-size: 15px; }
+      .week-kicker { font-size: 12px; }
+      .week h2 { font-size: 33px; }
+      .week-number { font-size: 52px; }
+      .week-number small { font-size: 9px; margin-top: 10px; }
+      .day-card { grid-template-columns: 77px minmax(0, 1fr); border-radius: 14px; }
+      .day-label { padding: 22px 10px; }
+      .day-label strong { font-size: 21px; }
+      .day-label span { font-size: 10px; }
+      .day-body { padding: 19px 13px 16px; }
+      .period { grid-template-columns: 1fr; gap: 2px; }
+      .period h3 { font-size: 16px; }
+      .period p { font-size: 12px; }
+      .homework { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media print {
+      @page { size: A4 portrait; margin: 15mm; }
+      body { background: white; }
+      .page { width: 100%; padding: 0; }
+      .hero { margin: 25px 0 35px; }
+      .week { break-before: page; margin-top: 0; }
+      .week:first-of-type { break-before: auto; }
+      .day-card { break-inside: avoid; box-shadow: none; }
+      .footnote { break-inside: avoid; }
+    }
   </style>
 </head>
 <body>
   <main class="page">
-    <header class="page-top">
-      <div><p class="eyebrow">FANSHEN · AI PRODUCT OPERATIONS</p><h1>AI 产品运营｜六周周末课程表</h1><p class="top-note">同一项目贯穿六周：上课、实战、提交初稿、课堂点评、改稿与周作业终稿同步推进。</p></div>
-      <div class="time-rule"><strong>固定上课时间</strong><span>周六／日　10:00–12:30　｜　14:00–17:00</span></div>
+    <div class="topbar"><span class="brand">AI 产品运营</span><span class="catalog">COURSE CATALOG / 06</span></div>
+    <header class="hero">
+      <p class="hero-kicker">AI PRODUCT OPERATIONS · WEEKEND PROGRAM</p>
+      <h1>Ai 产品运营就业系统课</h1>
+      <p class="hero-desc">以求职为目标，结合真实大厂岗位案例，拆解 AI 项目从需求、数据、工作流、评测到产品上线的工作流程。前 30 天训练转行进入 AI 行业所需的核心能力与项目证据，六周完成可用于投递和面试的 AI 产品运营作品集。</p>
+      <div class="hero-meta"><span>每周六、周日上课</span><span>上午 10:00–12:30</span><span>下午 14:00–17:00</span><span>周五下午点评作业</span><span>6 周 · 12 天 · 24 个半天</span></div>
     </header>
-    <section class="legend" aria-label="课程节奏说明"><div><b>06 WEEKS</b><span>6 个周末 · 12 个上课日</span></div><div><b>24 SESSIONS</b><span>每个周末 4 个上午／下午模块</span></div><div><b>作业与点评</b><span>周六初稿 · 周日上午点评 · 周日终稿</span></div></section>
-    <section class="week-card rose" id="week-01" aria-labelledby="week-title-01">
-    <header class="week-header">
-      <div class="week-number">01</div>
-      <div class="week-title"><p>WEEK 01 ／ 第 01 周</p><h2 id="week-title-01">定位与技术基础</h2></div>
-      <div class="week-note">从岗位地图、业务任务到 Prompt 与结果核验，确定贯穿项目的第一版方向。</div>
-    </header>
-    <div class="course-grid">
-      <article class="day-column">
-    <header class="day-header"><strong>周六</strong><span>DAY 01</span></header>
-    <div class="day-content"><section class="time-block">
-    <p class="time">上午 · 10:00–12:30</p>
-    <h3>AI 产运通关地图</h3>
-    <p class="description">三类岗位／真实工作流／就业项目选择</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>业务目标与 OKR 拆解</h3>
-    <p class="description">用「用户—任务—价值」拆一个 AI 产运项目</p>
-  </section></div>
-  </article>
-      <article class="day-column">
-    <header class="day-header"><strong>周日</strong><span>DAY 02</span></header>
-    <div class="day-content"><section class="time-block review-block">
-    <p class="time">上午 · 10:00–12:30<span>作业点评</span></p>
-    <h3>作业点评｜机会卡 V1</h3>
-    <p class="description">逐组校准目标岗位、问题边界与可验证结果</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>AI 技术思维与 Prompt 实战</h3>
-    <p class="description">模型边界／工具选择／Prompt V1／结果核验</p>
-  </section></div>
-  </article>
-    </div>
-    <footer class="homework-row">
-      <div><p>本周产出</p><b>岗位目标卡 · 项目 OKR · Prompt 版本记录</b></div>
-      <div><p>作业安排</p><b>AI 产运机会简报 + Prompt V1</b><small>周六 21:00 交初稿 · 周日 22:00 交终稿</small></div>
-      <div><p>点评重点</p><b>是否说清：谁在什么场景，要把什么任务交给 AI</b><small>周日上午点评初稿 · 周日下午改稿冲刺</small></div>
-    </footer>
-  </section>
-<section class="week-card mint" id="week-02" aria-labelledby="week-title-02">
-    <header class="week-header">
-      <div class="week-number">02</div>
-      <div class="week-title"><p>WEEK 02 ／ 第 02 周</p><h2 id="week-title-02">产品落地与 AI 工作流</h2></div>
-      <div class="week-note">把真实需求做成最小可试用方案：既看成功路径，也看失败与兜底。</div>
-    </header>
-    <div class="course-grid">
-      <article class="day-column">
-    <header class="day-header"><strong>周六</strong><span>DAY 03</span></header>
-    <div class="day-content"><section class="time-block">
-    <p class="time">上午 · 10:00–12:30</p>
-    <h3>需求与产品方向</h3>
-    <p class="description">用户问题／竞品任务测试／MVP 范围取舍</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>Vibe Coding 做产品</h3>
-    <p class="description">把核心任务画成页面、流程与可演示的最小功能</p>
-  </section></div>
-  </article>
-      <article class="day-column">
-    <header class="day-header"><strong>周日</strong><span>DAY 04</span></header>
-    <div class="day-content"><section class="time-block review-block">
-    <p class="time">上午 · 10:00–12:30<span>作业点评</span></p>
-    <h3>作业点评｜机会简报 + Prompt</h3>
-    <p class="description">检查任务定义、成功标准与输入输出是否可复现</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>AI 工作流搭建工作坊</h3>
-    <p class="description">知识、变量、审核节点与异常路径；现场跑通样例</p>
-  </section></div>
-  </article>
-    </div>
-    <footer class="homework-row">
-      <div><p>本周产出</p><b>MVP 原型／工作流图 · 10 条任务测试记录</b></div>
-      <div><p>作业安排</p><b>可试用 MVP 或 Workflow + 测试与问题清单</b><small>周六 21:00 交初稿 · 周日 22:00 交终稿</small></div>
-      <div><p>点评重点</p><b>不只看「能不能生成」，还看任务是否完成、哪里会失败</b><small>周日上午点评初稿 · 周日下午改稿冲刺</small></div>
-    </footer>
-  </section>
-<section class="week-card blue" id="week-03" aria-labelledby="week-title-03">
-    <header class="week-header">
-      <div class="week-number">03</div>
-      <div class="week-title"><p>WEEK 03 ／ 第 03 周</p><h2 id="week-title-03">内容传播与品牌 Social</h2></div>
-      <div class="week-note">把产品价值翻译成用户愿意理解、讨论、转发的内容与传播动作。</div>
-    </header>
-    <div class="course-grid">
-      <article class="day-column">
-    <header class="day-header"><strong>周六</strong><span>DAY 05</span></header>
-    <div class="day-content"><section class="time-block">
-    <p class="time">上午 · 10:00–12:30</p>
-    <h3>社媒内容运营</h3>
-    <p class="description">使用场景／卖点提炼／账号定位／选题结构</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>Viral 内容制作</h3>
-    <p class="description">热点判断／内容脚本／素材协作／发布前质量检查</p>
-  </section></div>
-  </article>
-      <article class="day-column">
-    <header class="day-header"><strong>周日</strong><span>DAY 06</span></header>
-    <div class="day-content"><section class="time-block review-block">
-    <p class="time">上午 · 10:00–12:30<span>作业点评</span></p>
-    <h3>作业点评｜MVP 演示与测试</h3>
-    <p class="description">以真实任务记录检查产品价值、可用性与问题优先级</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>品牌 Social 传播方案</h3>
-    <p class="description">话题、平台节奏、渠道分发与效果假设的共创</p>
-  </section></div>
-  </article>
-    </div>
-    <footer class="homework-row">
-      <div><p>本周产出</p><b>内容卖点库 · 传播选题清单 · 1 条真实内容样稿</b></div>
-      <div><p>作业安排</p><b>产品内容传播方案 + 一条可发布的内容资产</b><small>周六 21:00 交初稿 · 周日 22:00 交终稿</small></div>
-      <div><p>点评重点</p><b>内容是否围绕具体用户任务，而非只罗列 AI 功能</b><small>周日上午点评初稿 · 周日下午改稿冲刺</small></div>
-    </footer>
-  </section>
-<section class="week-card lilac" id="week-04" aria-labelledby="week-title-04">
-    <header class="week-header">
-      <div class="week-number">04</div>
-      <div class="week-title"><p>WEEK 04 ／ 第 04 周</p><h2 id="week-title-04">项目管理与专项方案</h2></div>
-      <div class="week-note">把运营想法变成能协作、能排期、能承担资源与风险的执行方案。</div>
-    </header>
-    <div class="course-grid">
-      <article class="day-column">
-    <header class="day-header"><strong>周六</strong><span>DAY 07</span></header>
-    <div class="day-content"><section class="time-block">
-    <p class="time">上午 · 10:00–12:30</p>
-    <h3>AI 产运项目管理</h3>
-    <p class="description">业务调研／行业竞品／项目目标／排期与协作节点</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>大厂专项方案策划</h3>
-    <p class="description">品牌投放、达人合作、公关舆情与用户运营的策略选择</p>
-  </section></div>
-  </article>
-      <article class="day-column">
-    <header class="day-header"><strong>周日</strong><span>DAY 08</span></header>
-    <div class="day-content"><section class="time-block review-block">
-    <p class="time">上午 · 10:00–12:30<span>作业点评</span></p>
-    <h3>作业点评｜内容与渠道方案</h3>
-    <p class="description">追问目标人群、渠道逻辑、成本假设与可量化结果</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>项目作战室</h3>
-    <p class="description">资源、预算、Owner、风险与复盘指标；现场修订方案</p>
-  </section></div>
-  </article>
-    </div>
-    <footer class="homework-row">
-      <div><p>本周产出</p><b>项目排期 · RACI · 专项运营方案 V1</b></div>
-      <div><p>作业安排</p><b>项目作战书：目标、策略、资源、节奏、指标与风险</b><small>周六 21:00 交初稿 · 周日 22:00 交终稿</small></div>
-      <div><p>点评重点</p><b>能否在资源受限时做取舍，而不是把所有动作都写进去</b><small>周日上午点评初稿 · 周日下午改稿冲刺</small></div>
-    </footer>
-  </section>
-<section class="week-card yellow" id="week-05" aria-labelledby="week-title-05">
-    <header class="week-header">
-      <div class="week-number">05</div>
-      <div class="week-title"><p>WEEK 05 ／ 第 05 周</p><h2 id="week-title-05">搭建 AI Native 运营体系</h2></div>
-      <div class="week-note">连接知识库、多维表格、工作流与 Agent，把一次执行沉淀为可持续运行的系统。</div>
-    </header>
-    <div class="course-grid">
-      <article class="day-column">
-    <header class="day-header"><strong>周六</strong><span>DAY 09</span></header>
-    <div class="day-content"><section class="time-block">
-    <p class="time">上午 · 10:00–12:30</p>
-    <h3>AI 工作流应用</h3>
-    <p class="description">人机分工／知识来源／多维表格／任务触发与协作流</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>Agent 与质量审核</h3>
-    <p class="description">执行、质检、人工接管、反馈回流与持续优化</p>
-  </section></div>
-  </article>
-      <article class="day-column">
-    <header class="day-header"><strong>周日</strong><span>DAY 10</span></header>
-    <div class="day-content"><section class="time-block review-block">
-    <p class="time">上午 · 10:00–12:30<span>作业点评</span></p>
-    <h3>作业点评｜项目作战书</h3>
-    <p class="description">检查目标、排期、依赖、风险与指标是否能够落地</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>运营系统与数据复盘</h3>
-    <p class="description">任务成功、质量、成本、异常与复盘看板；补齐 SOP</p>
-  </section></div>
-  </article>
-    </div>
-    <footer class="homework-row">
-      <div><p>本周产出</p><b>AI Native 运营流程图 · SOP · 问题与反馈台账</b></div>
-      <div><p>作业安排</p><b>Agent/工作流方案 + 质量审核规则 + 运营 SOP</b><small>周六 21:00 交初稿 · 周日 22:00 交终稿</small></div>
-      <div><p>点评重点</p><b>系统是否有输入、执行、审核、反馈与人工兜底的闭环</b><small>周日上午点评初稿 · 周日下午改稿冲刺</small></div>
-    </footer>
-  </section>
-<section class="week-card gray" id="week-06" aria-labelledby="week-title-06">
-    <header class="week-header">
-      <div class="week-number">06</div>
-      <div class="week-title"><p>WEEK 06 ／ 第 06 周</p><h2 id="week-title-06">作品集与真实面试答辩</h2></div>
-      <div class="week-note">把六周项目证据写成岗位能听懂的故事，并在追问中讲清个人判断与贡献。</div>
-    </header>
-    <div class="course-grid">
-      <article class="day-column">
-    <header class="day-header"><strong>周六</strong><span>DAY 11</span></header>
-    <div class="day-content"><section class="time-block">
-    <p class="time">上午 · 10:00–12:30</p>
-    <h3>简历与作品集</h3>
-    <p class="description">项目证据、个人贡献、业务结果与 AI 能力的真实表达</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>投递策略与进度管理</h3>
-    <p class="description">目标公司、岗位筛选、投递节奏、沟通文案与复盘机制</p>
-  </section></div>
-  </article>
-      <article class="day-column">
-    <header class="day-header"><strong>周日</strong><span>DAY 12</span></header>
-    <div class="day-content"><section class="time-block review-block">
-    <p class="time">上午 · 10:00–12:30<span>作业点评</span></p>
-    <h3>作业点评｜运营系统与复盘</h3>
-    <p class="description">从执行记录追问效果、问题、下一轮动作与个人贡献</p>
-  </section><section class="time-block">
-    <p class="time">下午 · 14:00–17:00</p>
-    <h3>模拟面试与项目答辩</h3>
-    <p class="description">自我介绍／项目陈述／随机追问／结营反馈与行动计划</p>
-  </section></div>
-  </article>
-    </div>
-    <footer class="homework-row">
-      <div><p>本周产出</p><b>简历项目描述 · AI 产运作品集 · 投递进度表</b></div>
-      <div><p>作业安排</p><b>终版作品集 + 5 分钟项目 Demo + 90 天求职计划</b><small>周六 21:00 交初稿 · 周日 22:00 交终稿</small></div>
-      <div><p>点评重点</p><b>能否用真实证据讲清问题、动作、结果、反思与下一步</b><small>周日上午点评初稿 · 周日下午改稿冲刺</small></div>
-    </footer>
-  </section>
-    <footer class="bottom"><p><b>AI 产品运营课程表</b>　｜　岗位定位 · 产品落地 · 内容传播 · 项目管理 · AI Native 运营 · 求职答辩</p><p>课表中的具体日期、授课老师和实操工具可按开营计划补充。</p></footer>
+
+    <section class="week" id="week-1" aria-labelledby="week-1-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 01 · 技术起步</p><h2 id="week-1-title">AI 基础与任务定义</h2></div><div class="week-number">01<small>WEEKS</small></div></div>
+      <p class="week-note">先看懂 AI 能解决什么，再把运营经验转成一个可验证的产品任务。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 01</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>AI 产品运营岗位地图与大模型工作链路</h3><p>模型能力、上下文、幻觉；技术工作如何连接用户与业务。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>运营场景调研与 AI 任务定义</h3><p>目标用户、任务输入输出、问题边界和成功标准。</p></div></div></div><div class="homework"><b>作业</b><p>确定毕业项目：一类目标用户、一个核心任务、一条成功标准。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 02</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Prompt 结构设计与版本调优</h3><p>角色、上下文、约束、输出格式；同一任务多版本比较。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>AI 辅助代码与批量测试入门</h3><p>用简单脚本或低代码流程运行样例，记录效果基线。</p></div></div></div><div class="homework"><b>作业</b><p>任务定义书 V1、Prompt V1、基线测试记录；周五下午点评。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>项目选题 · 任务定义 · Prompt 初版 · 效果基线</span></div>
+      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评任务边界、Prompt 版本与效果基线，提出下一周改进点。</span></div>
+    </section>
+
+    <section class="week lavender" id="week-2" aria-labelledby="week-2-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 02 · 数据与质量</p><h2 id="week-2-title">训练数据构建与质量控制</h2></div><div class="week-number">02<small>WEEKS</small></div></div>
+      <p class="week-note">掌握样本、标注、偏好和质检，让运营人能参与 AI 能力的持续改进。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 03</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>数据任务拆解与标注规则设计</h3><p>数据来源、清洗、字段、隐私及标注标准。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>SFT 与分步推理样本实作</h3><p>围绕同一业务任务制作高质量输入、答案和过程样例。</p></div></div></div><div class="homework"><b>作业</b><p>提交标注规范 V1 与第一批任务样本。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 04</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Reward 偏好数据与安全判断</h3><p>成对比较答案，说明优劣与风险，而不只看语言流畅。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>交叉标注、质检与规则修订</h3><p>分析分歧、检查一致性，建立可复用的数据质量流程。</p></div></div></div><div class="homework"><b>作业</b><p>样本集、偏好样例、质检记录与修订后的标注规范。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>数据样本集 · 标注规范 · 偏好判断 · 质检记录</span></div>
+      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评样本质量、标注分歧和质检记录，修订数据规范。</span></div>
+    </section>
+
+    <section class="week blue" id="week-3" aria-labelledby="week-3-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 03 · 应用链路</p><h2 id="week-3-title">RAG、Agent 与多模态</h2></div><div class="week-number">03<small>WEEKS</small></div></div>
+      <p class="week-note">让 AI 从单次回答走向有知识来源、有任务流程、能处理不同媒介的应用。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 05</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>RAG 知识库与检索增强</h3><p>文档切分、元数据、召回、引用与知识更新。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Agent 工作流与工具调用</h3><p>任务拆解、工具边界、权限、异常路径与人工接管。</p></div></div></div><div class="homework"><b>作业</b><p>搭建项目知识库与可演示的 AI 工作流 V1。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 06</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>图像、视频、音频数据处理</h3><p>标签、描述、质量判断与数据溯源；项目按需选用。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>TTS 语音小实验与中期展示</h3><p>比较语音自然度、准确性和可用性，接受项目追问。</p></div></div></div><div class="homework"><b>作业</b><p>工作流演示、多模态质量记录与项目阶段复盘。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>知识库 · Agent/Workflow 原型 · 多模态练习 · 中期演示</span></div>
+      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评工作流的成功、失败和人工接管路径，以及多模态质量记录。</span></div>
+    </section>
+
+    <section class="week rose" id="week-4" aria-labelledby="week-4-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 04 · 评测与迭代</p><h2 id="week-4-title">模型评测与效果优化</h2></div><div class="week-number">04<small>WEEKS</small></div></div>
+      <p class="week-note">不是说“感觉变好了”，而是建立可复测的质量标准、问题归因和改进记录。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 07</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>模型评测体系与评测集设计</h3><p>准确、任务完成、性能、安全；评分规则和样本覆盖。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>横向评测、Badcase 与报告</h3><p>人工打分、对比实验、问题归因和优化优先级。</p></div></div></div><div class="homework"><b>作业</b><p>评测集、评分表与项目评测报告 V1。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 08</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Python 自动化评测开发</h3><p>用 AI 辅助批量运行测试，设置人工抽检和结果分析。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Dify 工作流集成与回归测试</h3><p>修复高优先级问题，使用同一评测集验证改进前后。</p></div></div></div><div class="homework"><b>作业</b><p>终版评测报告、自动化测试记录与效果前后对比。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>评测方案 · 评测报告 · 自动化测试 · 可复现的改进证据</span></div>
+      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评评测标准、结果证据和 Badcase 归因，确认优化是否可复测。</span></div>
+    </section>
+
+    <section class="week gold" id="week-5" aria-labelledby="week-5-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 05 · 产品落地</p><h2 id="week-5-title">产品设计与 MVP 开发</h2></div><div class="week-number">05<small>WEEKS</small></div></div>
+      <p class="week-note">借鉴实际产品项目流程，把前四周验证过的 AI 能力包装成可供他人试用的单功能产品。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 09</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>用户需求、竞品任务与 MVP 定位</h3><p>用 AI 辅助调研，但由学员判断价值、边界和优先级。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>轻量 PRD、页面原型与验收标准</h3><p>用户流程、功能边界、AI 质量门槛、埋点与异常处理。</p></div></div></div><div class="homework"><b>作业</b><p>产品定位、用户流程、页面原型与轻量 PRD。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 10</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>AI 辅助开发 Web App MVP</h3><p>复用已验证的知识库和工作流，完成核心输入输出与部署。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>真实试用、问题分级与上线验收</h3><p>观察用户完成任务，记录失败点、人工兜底和修复顺序。</p></div></div></div><div class="homework"><b>作业</b><p>可访问的 App 链接、试用记录与下一轮迭代清单。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>产品定位 · 轻量 PRD · 单功能 Web App · 用户试用证据</span></div>
+      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评 MVP 核心路径、用户试用记录与问题修复优先级。</span></div>
+    </section>
+
+    <section class="week forest" id="week-6" aria-labelledby="week-6-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 06 · 推广与表达</p><h2 id="week-6-title">独立开发者推广实战</h2></div><div class="week-number">06<small>WEEKS</small></div></div>
+      <p class="week-note">理解 AI 时代小团队如何获得首批用户，用真实推广反馈完成产品与个人作品的闭环。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 11</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>独立产品定位与冷启动案例</h3><p>目标用户、价值主张、首批用户来源、渠道与价格假设。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>落地页、演示内容与推广文案</h3><p>使用 AI 制作素材，清楚展示用户问题和产品解决方式。</p></div></div></div><div class="homework"><b>作业</b><p>产品落地页、演示素材与一个渠道的发布方案。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 12</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>一次真实发布与用户触达</h3><p>选择一个渠道，小规模发布或定向邀请，记录真实反馈。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>项目复盘、作品集与模拟答辩</h3><p>讲清数据、评测、产品、推广中的个人判断与可核对结果。</p></div></div></div><div class="homework"><b>作业</b><p>推广实验记录、完整作品集与 5 分钟项目演示。</p></div></div></article>
+      <div class="week-output"><b>毕业成果</b><span>一个可试用的 AI App · 一套质量与迭代证据 · 一次真实推广记录 · AI 产品运营作品集</span></div>
+      <div class="feedback"><b>课后周五下午 · 终版点评</b><span>点评完整作品集、项目演示与个人求职表达。</span></div>
+    </section>
+
+    <footer class="footnote"><p><strong>作业点评节奏：</strong>每周日布置核心作业，周三提交初稿，周五下午集中点评；学员据此改稿，并在下一周课程中应用反馈。第 6 周作业在结课后周五下午进行终版点评。</p><p>这是一份课程展示稿。具体开营日期、授课教师、工具账号与项目行业可在开课前确定；多模态和 TTS 为必做练习，但不强制加入每位学员的毕业 App。</p></footer>
   </main>
 </body>
 </html>
