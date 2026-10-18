@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Ai 产品运营就业系统课</title>
+  <title>Ai agent 产品就业系统课</title>
   <style>
     :root {
       --paper: #faf9f3;
@@ -58,8 +58,14 @@
     .homework p { color: #5b675f; font-size: 15px; font-weight: 650; line-height: 1.6; }
     .week-output { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; margin-top: 21px; padding: 16px 20px; border-radius: 11px; background: var(--pale); color: #5e6d63; font-size: 14px; line-height: 1.65; }
     .week-output b { color: var(--accent); white-space: nowrap; }
-    .feedback { display: flex; flex-wrap: wrap; gap: 12px; align-items: baseline; margin-top: 9px; padding: 13px 20px; border: 1px solid var(--number); border-radius: 11px; color: #5e6d63; background: #fff; font-size: 13px; line-height: 1.6; }
-    .feedback b { color: var(--accent); white-space: nowrap; }
+    .midweek { margin-top: 9px; padding: 16px 20px 18px; border: 1px solid var(--number); border-radius: 11px; background: #fff; }
+    .midweek > b { color: var(--accent); font-size: 14px; white-space: nowrap; }
+    .midweek > b small { margin-left: 10px; color: #8a968f; font-size: 12px; font-weight: 600; }
+    .mid-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 13px; }
+    .mid-item { padding-left: 13px; border-left: 2px solid var(--number); }
+    .mid-item em { color: var(--accent); font-size: 12px; font-style: normal; font-weight: 800; letter-spacing: .14em; }
+    .mid-item strong { display: block; margin-top: 4px; font-size: 15px; }
+    .mid-item span { display: block; margin-top: 4px; color: #6d7a73; font-size: 13px; line-height: 1.6; }
     .footnote { margin-top: 88px; padding: 30px 0 10px; border-top: 1px solid #cbd9ce; color: #6c7c70; font-size: 14px; line-height: 1.9; }
     .footnote strong { color: var(--ink); }
     .footnote p + p { margin-top: 9px; }
@@ -78,6 +84,7 @@
       .period h3 { font-size: 18px; }
       .homework { grid-template-columns: 49px minmax(0, 1fr); gap: 9px; }
       .homework p { font-size: 14px; }
+      .mid-items { grid-template-columns: 1fr; gap: 12px; }
     }
     @media (max-width: 480px) {
       .topbar { font-size: 11px; }
@@ -113,69 +120,60 @@
 </head>
 <body>
   <main class="page">
-    <div class="topbar"><span class="brand">AI 产品运营</span><span class="catalog">COURSE CATALOG / 06</span></div>
+    <div class="topbar"><span class="brand">AI AGENT 产品</span><span class="catalog">COURSE CATALOG / 05</span></div>
     <header class="hero">
-      <p class="hero-kicker">AI PRODUCT OPERATIONS · WEEKEND PROGRAM</p>
-      <h1>Ai 产品运营就业系统课</h1>
-      <p class="hero-desc">以求职为目标，结合真实大厂岗位案例，拆解 AI 项目从需求、数据、工作流、评测到产品上线的工作流程。前 30 天训练转行进入 AI 行业所需的核心能力与项目证据，六周完成可用于投递和面试的 AI 产品运营作品集。</p>
-      <div class="hero-meta"><span>每周六、周日上课</span><span>上午 10:00–12:30</span><span>下午 14:00–17:00</span><span>周五下午点评作业</span><span>6 周 · 12 天 · 24 个半天</span></div>
+      <p class="hero-kicker">AI AGENT PRODUCT · WEEKEND PROGRAM</p>
+      <h1>Ai agent 产品就业系统课</h1>
+      <p class="hero-desc">以求职为目标，从 Agent 产品通识出发，先补齐大模型从数据、训练、对齐到评测的底层能力，再带学员完成 Agent 设计，并拆解大厂真实 AI 业务项目。五周完成可用于投递和面试的 Agent 产品作品集。</p>
+      <div class="hero-meta"><span>每周六、周日上课</span><span>上午 10:00–12:30</span><span>下午 14:00–17:00</span><span>周中：产品交流会 · 周刊领读 · 作业点评</span><span>5 周 · 10 天 · 20 个半天</span></div>
     </header>
 
     <section class="week" id="week-1" aria-labelledby="week-1-title">
-      <div class="week-heading"><div><p class="week-kicker">WEEK 01 · 技术起步</p><h2 id="week-1-title">AI 基础与任务定义</h2></div><div class="week-number">01<small>WEEKS</small></div></div>
-      <p class="week-note">先看懂 AI 能解决什么，再把运营经验转成一个可验证的产品任务。</p>
-      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 01</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>AI 产品运营岗位地图与大模型工作链路</h3><p>模型能力、上下文、幻觉；技术工作如何连接用户与业务。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>运营场景调研与 AI 任务定义</h3><p>目标用户、任务输入输出、问题边界和成功标准。</p></div></div></div><div class="homework"><b>作业</b><p>确定毕业项目：一类目标用户、一个核心任务、一条成功标准。</p></div></div></article>
-      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 02</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Prompt 结构设计与版本调优</h3><p>角色、上下文、约束、输出格式；同一任务多版本比较。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>AI 辅助代码与批量测试入门</h3><p>用简单脚本或低代码流程运行样例，记录效果基线。</p></div></div></div><div class="homework"><b>作业</b><p>任务定义书 V1、Prompt V1、基线测试记录；周五下午点评。</p></div></div></article>
-      <div class="week-output"><b>本周产出</b><span>项目选题 · 任务定义 · Prompt 初版 · 效果基线</span></div>
-      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评任务边界、Prompt 版本与效果基线，提出下一周改进点。</span></div>
+      <div class="week-heading"><div><p class="week-kicker">WEEK 01 · 产品通识</p><h2 id="week-1-title">Agent 产品通识</h2></div><div class="week-number">01<small>WEEKS</small></div></div>
+      <p class="week-note">先建立 AI 行业与 Agent 产品的全局认知，听懂行业语言，用熟上手工具。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 01</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>AI 产品岗位地图与职业规划</h3><p>开营；行业标准、岗位职责、能力模型与课程安排。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>AI 行业专业名词解析</h3><p>模型基础：大模型、Token、上下文窗口、幻觉；模型训练：预训练、SFT、RLHF、LoRA；应用技术：RAG、Agent、Workflow、MCP、Function Calling；评测：评测集、Badcase、Benchmark。结合真实产品场景讲解。</p></div></div></div><div class="homework"><b>作业</b><p>整理 AI 名词卡片，拆解 3 份目标岗位 JD 中的专业术语。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 02</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>AI 效率工具与协作软件</h3><p>ChatGPT、Claude、豆包、Kimi；飞书文档与多维表格；Cherry Studio；Prompt 基础写法与图片/视频/音频生成工具。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Agent 搭建与开发工具入门</h3><p>Dify、Coze；Cursor、Claude Code / Codex 安装与配置；GitHub 基础操作，完成第一个能跑起来的小工具。</p></div></div></div><div class="homework"><b>作业</b><p>完成软件环境配置，提交工具使用笔记与一个 Dify/Coze 小应用。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>AI 名词卡片 · 岗位术语拆解 · 工具使用笔记 · 第一个 Dify/Coze 小应用</span></div>
+      <div class="midweek"><b>周中任务<small>每项约 3 小时</small></b><div class="mid-items"><div class="mid-item"><em>周二</em><strong>产品交流会</strong><span>学员分享产品体验与项目进展，互相提问、找问题。</span></div><div class="mid-item"><em>周三</em><strong>周刊领读</strong><span>领读 AI 周刊中的专业文章，梳理行业动态与方法论。</span></div><div class="mid-item"><em>周五</em><strong>作业点评</strong><span>点评名词卡片、岗位术语拆解与第一个小应用。</span></div></div></div>
     </section>
 
     <section class="week lavender" id="week-2" aria-labelledby="week-2-title">
-      <div class="week-heading"><div><p class="week-kicker">WEEK 02 · 数据与质量</p><h2 id="week-2-title">训练数据构建与质量控制</h2></div><div class="week-number">02<small>WEEKS</small></div></div>
-      <p class="week-note">掌握样本、标注、偏好和质检，让运营人能参与 AI 能力的持续改进。</p>
-      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 03</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>数据任务拆解与标注规则设计</h3><p>数据来源、清洗、字段、隐私及标注标准。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>SFT 与分步推理样本实作</h3><p>围绕同一业务任务制作高质量输入、答案和过程样例。</p></div></div></div><div class="homework"><b>作业</b><p>提交标注规范 V1 与第一批任务样本。</p></div></div></article>
-      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 04</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Reward 偏好数据与安全判断</h3><p>成对比较答案，说明优劣与风险，而不只看语言流畅。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>交叉标注、质检与规则修订</h3><p>分析分歧、检查一致性，建立可复用的数据质量流程。</p></div></div></div><div class="homework"><b>作业</b><p>样本集、偏好样例、质检记录与修订后的标注规范。</p></div></div></article>
-      <div class="week-output"><b>本周产出</b><span>数据样本集 · 标注规范 · 偏好判断 · 质检记录</span></div>
-      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评样本质量、标注分歧和质检记录，修订数据规范。</span></div>
+      <div class="week-heading"><div><p class="week-kicker">WEEK 02 · 模型底层</p><h2 id="week-2-title">AI 训练全链路与模型能力</h2></div><div class="week-number">02<small>WEEKS</small></div></div>
+      <p class="week-note">参考 AI 训练师的工作链路：需求 → 数据 → 训练 → 评测 → 上线 → 反馈，理解模型能力从哪里来、如何被评估与改进。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 03</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>训练链路与数据准备</h3><p>业务目标与能力边界；数据采集、清洗、标注、去重，数据集构建与标注规则文档。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>预训练、SFT 与 LoRA 微调实操</h3><p>Instruction-Response 样本、CoT 分步推理样本；LoRA 训练带练。</p></div></div></div><div class="homework"><b>作业</b><p>标注规范 V1、SFT 样本集与 LoRA 训练实操记录。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 04</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>对齐训练与偏好数据</h3><p>Reward 模型、RLHF / RLAIF / DPO；成对比较答案与安全判断。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>模型评测、上线验收与数据回流</h3><p>能力、场景、安全评测与 Benchmark 构建；A/B Test、回归测试、上线 Gate 与红线测试；Badcase 回流。</p></div></div></div><div class="homework"><b>作业</b><p>偏好数据样例、一份小型评测集与评测报告 V1。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>标注规范 · SFT / 偏好样本 · LoRA 实操记录 · 评测报告</span></div>
+      <div class="midweek"><b>周中任务<small>每项约 3 小时</small></b><div class="mid-items"><div class="mid-item"><em>周二</em><strong>产品交流会</strong><span>学员分享产品体验与项目进展，互相提问、找问题。</span></div><div class="mid-item"><em>周三</em><strong>周刊领读</strong><span>领读 AI 周刊中的专业文章，梳理行业动态与方法论。</span></div><div class="mid-item"><em>周五</em><strong>作业点评</strong><span>点评数据规范、训练样本与评测报告。</span></div></div></div>
     </section>
 
     <section class="week blue" id="week-3" aria-labelledby="week-3-title">
-      <div class="week-heading"><div><p class="week-kicker">WEEK 03 · 应用链路</p><h2 id="week-3-title">RAG、Agent 与多模态</h2></div><div class="week-number">03<small>WEEKS</small></div></div>
-      <p class="week-note">让 AI 从单次回答走向有知识来源、有任务流程、能处理不同媒介的应用。</p>
-      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 05</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>RAG 知识库与检索增强</h3><p>文档切分、元数据、召回、引用与知识更新。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Agent 工作流与工具调用</h3><p>任务拆解、工具边界、权限、异常路径与人工接管。</p></div></div></div><div class="homework"><b>作业</b><p>搭建项目知识库与可演示的 AI 工作流 V1。</p></div></div></article>
-      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 06</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>图像、视频、音频数据处理</h3><p>标签、描述、质量判断与数据溯源；项目按需选用。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>TTS 语音小实验与中期展示</h3><p>比较语音自然度、准确性和可用性，接受项目追问。</p></div></div></div><div class="homework"><b>作业</b><p>工作流演示、多模态质量记录与项目阶段复盘。</p></div></div></article>
-      <div class="week-output"><b>本周产出</b><span>知识库 · Agent/Workflow 原型 · 多模态练习 · 中期演示</span></div>
-      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评工作流的成功、失败和人工接管路径，以及多模态质量记录。</span></div>
+      <div class="week-heading"><div><p class="week-kicker">WEEK 03 · Agent 实战 · 上</p><h2 id="week-3-title">Agent 设计与搭建</h2></div><div class="week-number">03<small>WEEKS</small></div></div>
+      <p class="week-note">用前两周掌握的模型能力，完成一个 Agent 的完整设计：需求、架构、工具、知识与记忆。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 05</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Agent 架构与工具调用</h3><p>Subagent、Multi-agent；API / Tool / MCP；从单 Agent 到多 Agent 协作。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Dify 搭建 Agent 工作流</h3><p>任务拆解、工具边界与权限、异常路径与人工接管。</p></div></div></div><div class="homework"><b>作业</b><p>用 Dify 搭建 Agent 原型，整理 Tool list 与 MCP 清单。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 06</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>RAG 知识库与检索增强</h3><p>文档切分、召回、引用；RAG 架构演变、LangChain / LangGraph 与相关指标。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Memory 记忆层与 Agent 策略设计</h3><p>短期与长期记忆设计；Agent 需求文档与策略带练。</p></div></div></div><div class="homework"><b>作业</b><p>确定个人 Agent 项目方向，提交需求文档初稿与 RAG / Memory 设计。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>Agent 原型 · Tool list · 项目知识库 · Agent 需求文档</span></div>
+      <div class="midweek"><b>周中任务<small>每项约 3 小时</small></b><div class="mid-items"><div class="mid-item"><em>周二</em><strong>产品交流会</strong><span>学员分享产品体验与项目进展，互相提问、找问题。</span></div><div class="mid-item"><em>周三</em><strong>周刊领读</strong><span>领读 AI 周刊中的专业文章，梳理行业动态与方法论。</span></div><div class="mid-item"><em>周五</em><strong>作业点评</strong><span>点评Agent 原型、工具清单与需求文档。</span></div></div></div>
     </section>
 
-    <section class="week rose" id="week-4" aria-labelledby="week-4-title">
-      <div class="week-heading"><div><p class="week-kicker">WEEK 04 · 评测与迭代</p><h2 id="week-4-title">模型评测与效果优化</h2></div><div class="week-number">04<small>WEEKS</small></div></div>
-      <p class="week-note">不是说“感觉变好了”，而是建立可复测的质量标准、问题归因和改进记录。</p>
-      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 07</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>模型评测体系与评测集设计</h3><p>准确、任务完成、性能、安全；评分规则和样本覆盖。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>横向评测、Badcase 与报告</h3><p>人工打分、对比实验、问题归因和优化优先级。</p></div></div></div><div class="homework"><b>作业</b><p>评测集、评分表与项目评测报告 V1。</p></div></div></article>
-      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 08</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Python 自动化评测开发</h3><p>用 AI 辅助批量运行测试，设置人工抽检和结果分析。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Dify 工作流集成与回归测试</h3><p>修复高优先级问题，使用同一评测集验证改进前后。</p></div></div></div><div class="homework"><b>作业</b><p>终版评测报告、自动化测试记录与效果前后对比。</p></div></div></article>
-      <div class="week-output"><b>本周产出</b><span>评测方案 · 评测报告 · 自动化测试 · 可复现的改进证据</span></div>
-      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评评测标准、结果证据和 Badcase 归因，确认优化是否可复测。</span></div>
+    <section class="week gold" id="week-4" aria-labelledby="week-4-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 04 · Agent 实战 · 下</p><h2 id="week-4-title">大厂 AI 业务拆解与项目落地</h2></div><div class="week-number">04<small>WEEKS</small></div></div>
+      <p class="week-note">拆解大厂真实 AI 业务，对照完成自己 Agent 项目的立项、开发与评测。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 07</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>大厂 AI 业务项目拆解</h3><p>ToB / ToC 案例，如美团 RAG 项目、AIGC 内容生成系统；立项报告与需求评审流程。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>产品架构、PRD 与竞品分析</h3><p>产品架构、技术架构与信息架构；深度体验报告、Model list 与选型规则。</p></div></div></div><div class="homework"><b>作业</b><p>立项报告、产品架构图与轻量 PRD。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 08</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>Vibe Coding 开发 Agent MVP</h3><p>Claude Code / Codex、CLAUDE.md 与 Skill 配置；产品开发上线 SOP。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>Agent 评测、自动化测试与迭代</h3><p>用 Python 批量评测，Badcase 归因，改进前后对比验证。</p></div></div></div><div class="homework"><b>作业</b><p>可演示的 Agent MVP、评测报告与迭代清单。</p></div></div></article>
+      <div class="week-output"><b>本周产出</b><span>立项报告 · PRD · Agent MVP · 可复测的评测与迭代证据</span></div>
+      <div class="midweek"><b>周中任务<small>每项约 3 小时</small></b><div class="mid-items"><div class="mid-item"><em>周二</em><strong>产品交流会</strong><span>学员分享产品体验与项目进展，互相提问、找问题。</span></div><div class="mid-item"><em>周三</em><strong>周刊领读</strong><span>领读 AI 周刊中的专业文章，梳理行业动态与方法论。</span></div><div class="mid-item"><em>周五</em><strong>作业点评</strong><span>点评Agent MVP 核心路径与评测证据。</span></div></div></div>
     </section>
 
-    <section class="week gold" id="week-5" aria-labelledby="week-5-title">
-      <div class="week-heading"><div><p class="week-kicker">WEEK 05 · 产品落地</p><h2 id="week-5-title">产品设计与 MVP 开发</h2></div><div class="week-number">05<small>WEEKS</small></div></div>
-      <p class="week-note">借鉴实际产品项目流程，把前四周验证过的 AI 能力包装成可供他人试用的单功能产品。</p>
-      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 09</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>用户需求、竞品任务与 MVP 定位</h3><p>用 AI 辅助调研，但由学员判断价值、边界和优先级。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>轻量 PRD、页面原型与验收标准</h3><p>用户流程、功能边界、AI 质量门槛、埋点与异常处理。</p></div></div></div><div class="homework"><b>作业</b><p>产品定位、用户流程、页面原型与轻量 PRD。</p></div></div></article>
-      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 10</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>AI 辅助开发 Web App MVP</h3><p>复用已验证的知识库和工作流，完成核心输入输出与部署。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>真实试用、问题分级与上线验收</h3><p>观察用户完成任务，记录失败点、人工兜底和修复顺序。</p></div></div></div><div class="homework"><b>作业</b><p>可访问的 App 链接、试用记录与下一轮迭代清单。</p></div></div></article>
-      <div class="week-output"><b>本周产出</b><span>产品定位 · 轻量 PRD · 单功能 Web App · 用户试用证据</span></div>
-      <div class="feedback"><b>课后周五下午 · 作业点评</b><span>点评 MVP 核心路径、用户试用记录与问题修复优先级。</span></div>
+    <section class="week forest" id="week-5" aria-labelledby="week-5-title">
+      <div class="week-heading"><div><p class="week-kicker">WEEK 05 · 求职冲刺</p><h2 id="week-5-title">简历打磨与模拟面试</h2></div><div class="week-number">05<small>WEEKS</small></div></div>
+      <p class="week-note">把五周的项目证据，转化为简历、作品集与面试表达。</p>
+      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 09</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>岗位需求拆解与简历撰写</h3><p>JD 关键词、项目经历写法、数据指标与成果表达。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>作品集整理与项目讲述</h3><p>数据分析与指标体系；5 分钟项目讲述结构。</p></div></div></div><div class="homework"><b>作业</b><p>简历 V1、作品集与项目讲述稿。</p></div></div></article>
+      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 10</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>模拟技术面</h3><p>在职 AI 产品从业者围绕模型、RAG、Agent 与评测深度追问。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>HR 面与投递 SOP</h3><p>HR 面常见问题、投递渠道与阶段管理、面试复盘。</p></div></div></div><div class="homework"><b>作业</b><p>简历终版、模拟面试复盘与投递计划。</p></div></div></article>
+      <div class="week-output"><b>毕业成果</b><span>一个可演示的 Agent 项目 · 一套模型训练与评测证据 · 简历与作品集 · 模拟面试反馈</span></div>
+      <div class="midweek"><b>周中任务<small>每项约 3 小时</small></b><div class="mid-items"><div class="mid-item"><em>周二</em><strong>产品交流会</strong><span>学员分享产品体验与项目进展，互相提问、找问题。</span></div><div class="mid-item"><em>周三</em><strong>周刊领读</strong><span>领读 AI 周刊中的专业文章，梳理行业动态与方法论。</span></div><div class="mid-item"><em>周五</em><strong>作业点评</strong><span>点评简历终版与模拟面试表现；结课后周五终版点评。</span></div></div></div>
     </section>
 
-    <section class="week forest" id="week-6" aria-labelledby="week-6-title">
-      <div class="week-heading"><div><p class="week-kicker">WEEK 06 · 推广与表达</p><h2 id="week-6-title">独立开发者推广实战</h2></div><div class="week-number">06<small>WEEKS</small></div></div>
-      <p class="week-note">理解 AI 时代小团队如何获得首批用户，用真实推广反馈完成产品与个人作品的闭环。</p>
-      <article class="day-card"><div class="day-label"><strong>周六</strong><span>DAY 11</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>独立产品定位与冷启动案例</h3><p>目标用户、价值主张、首批用户来源、渠道与价格假设。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>落地页、演示内容与推广文案</h3><p>使用 AI 制作素材，清楚展示用户问题和产品解决方式。</p></div></div></div><div class="homework"><b>作业</b><p>产品落地页、演示素材与一个渠道的发布方案。</p></div></div></article>
-      <article class="day-card"><div class="day-label"><strong>周日</strong><span>DAY 12</span></div><div class="day-body"><div class="periods"><div class="period"><span class="period-label">上午</span><div><h3>一次真实发布与用户触达</h3><p>选择一个渠道，小规模发布或定向邀请，记录真实反馈。</p></div></div><div class="period"><span class="period-label">下午</span><div><h3>项目复盘、作品集与模拟答辩</h3><p>讲清数据、评测、产品、推广中的个人判断与可核对结果。</p></div></div></div><div class="homework"><b>作业</b><p>推广实验记录、完整作品集与 5 分钟项目演示。</p></div></div></article>
-      <div class="week-output"><b>毕业成果</b><span>一个可试用的 AI App · 一套质量与迭代证据 · 一次真实推广记录 · AI 产品运营作品集</span></div>
-      <div class="feedback"><b>课后周五下午 · 终版点评</b><span>点评完整作品集、项目演示与个人求职表达。</span></div>
-    </section>
-
-    <footer class="footnote"><p><strong>作业点评节奏：</strong>每周日布置核心作业，周三提交初稿，周五下午集中点评；学员据此改稿，并在下一周课程中应用反馈。第 6 周作业在结课后周五下午进行终版点评。</p><p>这是一份课程展示稿。具体开营日期、授课教师、工具账号与项目行业可在开课前确定；多模态和 TTS 为必做练习，但不强制加入每位学员的毕业 App。</p></footer>
+    <footer class="footnote"><p><strong>作业节奏：</strong>每周日布置核心作业，周三提交初稿，周五集中点评；学员据此改稿，并在下一周课程中应用反馈。第 5 周作业在结课后周五进行终版点评。</p><p>这是一份课程展示稿。具体开营日期、授课教师与工具账号可在开课前确定。</p></footer>
   </main>
 </body>
 </html>
